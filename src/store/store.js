@@ -12,8 +12,10 @@ export const useStore = defineStore("main", {
   },
   getters: {
     count(state) {
-      console.log("getter", state._count);
       return state._count;
+    },
+    doubeCount() {
+      return this.count * 2;
     },
   },
 });
