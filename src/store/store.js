@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useStore = defineStore("main", {
+export const useStore = defineStore("nt2", {
   state: () => ({
     _count: 0,
     _config: {},
