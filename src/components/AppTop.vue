@@ -1,18 +1,24 @@
 <template>
   <div>
     <h1>Top</h1>
-    <h3>Counter: {{ count }}</h3>
-    <h3>Double Counter: {{ doubleCount }}</h3>
+    <h3>Counter: {{ store.count }}</h3>
+    <h3>Double Counter: {{ store.doubleCount }}</h3>
+    <h3>Cuadruple Counter: {{ cuadrupleCount }}</h3>
   </div>
 </template>
 
 <script>
-import { mapState } from "pinia";
 import { useStore } from "../store/store";
 
 export default {
+  setup() {
+    const store = useStore();
+    return { store };
+  },
   computed: {
-    ...mapState(useStore, ["count", "doubleCount"]),
+    cuadrupleCount() {
+      return this.store.doubleCount * 2;
+    },
   },
 };
 </script>
