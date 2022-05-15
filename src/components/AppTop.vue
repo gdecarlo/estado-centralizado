@@ -2,7 +2,7 @@
   <div>
     <h1>Top</h1>
     <h3>Counter: {{ count }}</h3>
-    <h3>Double Counter: {{ doubeCount }}</h3>
+    <h3>Double Counter: {{ doubleCount }}</h3>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import { useStore } from "../store/store";
 
 export default {
   computed: {
-    ...mapState(useStore, ["count", "doubeCount"]),
+    ...mapState(useStore, ["count", "doubleCount"]),
   },
 };
 </script>

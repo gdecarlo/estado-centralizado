@@ -5,16 +5,25 @@ export const useStore = defineStore("main", {
     _count: 0,
   }),
   actions: {
+    /**
+     * Se incrementa en uno el contador
+     */
     add() {
-      console.log("action add..");
       this._count++;
     },
   },
   getters: {
+    /**
+     * @param {object} state
+     * @returns {number} - El contador
+     */
     count(state) {
       return state._count;
     },
-    doubeCount() {
+    /**
+     * @returns {number} resultado - El contador multiplicado por 2
+     */
+    doubleCount() {
       return this.count * 2;
     },
   },
