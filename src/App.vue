@@ -8,11 +8,20 @@
 <script>
 import AppHome from "./components/AppHome.vue";
 import AppTop from "./components/AppTop.vue";
+import { useStore } from "./store/store";
 export default {
   name: "App",
+  setup() {
+    const store = useStore();
+    return { store };
+  },
   components: {
     AppTop,
     AppHome,
+  },
+  async created() {
+    await this.store.setConfig();
+    //await this.store.setStartCount();
   },
 };
 </script>

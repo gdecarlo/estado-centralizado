@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useStore = defineStore("main", {
   state: () => ({
     _count: 0,
+    _config: {},
   }),
   actions: {
     /**
@@ -10,6 +11,17 @@ export const useStore = defineStore("main", {
      */
     add() {
       this._count++;
+    },
+    async setStartCount() {
+      this._count = this.config.start_count;
+    },
+    async setConfig() {
+      const result = await fetch(
+        "https://www.mockachino.com/139cfc28-736e-43/config"
+      );
+
+      this._config = await result.json();
+      this._count = this._config.start_count;
     },
   },
   getters: {
@@ -25,6 +37,13 @@ export const useStore = defineStore("main", {
      */
     doubleCount() {
       return this.count * 2;
+    },
+    /**
+     *
+     * @returns {object}
+     */
+    getConfig() {
+      return this._config;
     },
   },
 });

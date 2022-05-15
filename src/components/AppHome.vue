@@ -5,11 +5,13 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
-import { useStore } from "../store/store";
+import { useStore } from "@/store/store";
+
 export default {
-  methods: {
-    ...mapActions(useStore, ["add"]),
+  setup() {
+    const store = useStore();
+    const add = () => store.add();
+    return { store, add };
   },
 };
 </script>
